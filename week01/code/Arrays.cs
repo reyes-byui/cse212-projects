@@ -8,12 +8,18 @@ public static class Arrays
     /// <returns>array of doubles that are the multiples of the supplied number</returns>
     public static double[] MultiplesOf(double number, int length)
     {
-        // TODO Problem 1 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // Plan:
+        // 1. Create a new array of doubles with the given length.
+        // 2. Use a for loop to fill each position in the array.
+        // 3. For each index i, set the value to number * (i + 1).
+        // 4. Return the filled array.
 
-        return []; // replace this return statement with your own
+        double[] result = new double[length];
+        for (int i = 0; i < length; i++)
+        {
+            result[i] = number * (i + 1);
+        }
+        return result;
     }
 
     /// <summary>
@@ -25,9 +31,23 @@ public static class Arrays
     /// </summary>
     public static void RotateListRight(List<int> data, int amount)
     {
-        // TODO Problem 2 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // Plan:
+        // 1. Find the number of elements in the list (n).
+        // 2. Use GetRange to get the last 'amount' elements from the list.
+        // 3. Remove those 'amount' elements from the end of the list using RemoveRange.
+        // 4. Insert the saved elements at the beginning of the list using InsertRange.
+        // 5. The list is now rotated to the right by 'amount' positions.
+
+        int n = data.Count;
+        if (amount <= 0 || amount >= n) return; // No rotation needed if amount is 0 or >= n
+
+        // Step 2: Get the last 'amount' elements
+        List<int> temp = data.GetRange(n - amount, amount);
+
+        // Step 3: Remove those elements from the end
+        data.RemoveRange(n - amount, amount);
+
+        // Step 4: Insert them at the beginning
+        data.InsertRange(0, temp);
     }
 }
