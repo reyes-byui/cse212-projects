@@ -10,7 +10,7 @@
         queue.Enqueue(100);
         var value = queue.Dequeue();
         Console.WriteLine(value);
-        // Defect(s) Found:
+        // Fixed: Dequeue method now correctly accesses index 0 instead of index 1
 
         Console.WriteLine("------------");
 
@@ -28,7 +28,7 @@
         Console.WriteLine(value);
         value = queue.Dequeue();
         Console.WriteLine(value);
-        // Defect(s) Found: 
+        // Fixed: 1) Enqueue now adds to the end for FIFO behavior, 2) Dequeue now accesses correct index
 
         Console.WriteLine("------------");
 
@@ -44,7 +44,7 @@
         catch (IndexOutOfRangeException) {
             Console.WriteLine("I got the exception as expected.");
         }
-        // Defect(s) Found: 
+        // No defects found - this test case works correctly
     }
 
     private readonly List<int> _queue = new();
@@ -54,7 +54,7 @@
     /// </summary>
     /// <param name="value">Integer value to add to the queue</param>
     private void Enqueue(int value) {
-        _queue.Insert(0, value);
+        _queue.Add(value); // FIXED: Add to the end for FIFO behavior
     }
 
     /// <summary>
@@ -66,8 +66,8 @@
         if (_queue.Count <= 0)
             throw new IndexOutOfRangeException();
 
-        var value = _queue[1];
-        _queue.RemoveAt(1);
+        var value = _queue[0]; // FIXED: Access index 0 for FIFO behavior
+        _queue.RemoveAt(0);
         return value;
     }
 }

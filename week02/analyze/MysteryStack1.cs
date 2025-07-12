@@ -9,5 +9,5 @@
             result += stack.Pop();
 
         return result;
-    }
+    } 
 }
