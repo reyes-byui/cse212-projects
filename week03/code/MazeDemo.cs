@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-public class Program
+public class MazeDemo
 {
-    static void Main(string[] args)
+    public static void RunDemo()
     {
         Console.WriteLine("=== Maze Navigation Demo ===\n");
         
@@ -145,74 +145,5 @@ public class Program
             { (6, 6), new[] { true, false, false, false } }
         };
         return map;
-    }
-}
-
-public class Maze
-{
-    private readonly Dictionary<ValueTuple<int, int>, bool[]> _mazeMap;
-    private int _currX = 1;
-    private int _currY = 1;
-
-    public Maze(Dictionary<ValueTuple<int, int>, bool[]> mazeMap)
-    {
-        _mazeMap = mazeMap;
-    }
-
-    public void MoveLeft()
-    {
-        var currentLocation = (_currX, _currY);
-        if (_mazeMap.ContainsKey(currentLocation) && _mazeMap[currentLocation][0])
-        {
-            _currX--;
-        }
-        else
-        {
-            throw new InvalidOperationException("Can't go that way!");
-        }
-    }
-
-    public void MoveRight()
-    {
-        var currentLocation = (_currX, _currY);
-        if (_mazeMap.ContainsKey(currentLocation) && _mazeMap[currentLocation][1])
-        {
-            _currX++;
-        }
-        else
-        {
-            throw new InvalidOperationException("Can't go that way!");
-        }
-    }
-
-    public void MoveUp()
-    {
-        var currentLocation = (_currX, _currY);
-        if (_mazeMap.ContainsKey(currentLocation) && _mazeMap[currentLocation][2])
-        {
-            _currY--;
-        }
-        else
-        {
-            throw new InvalidOperationException("Can't go that way!");
-        }
-    }
-
-    public void MoveDown()
-    {
-        var currentLocation = (_currX, _currY);
-        if (_mazeMap.ContainsKey(currentLocation) && _mazeMap[currentLocation][3])
-        {
-            _currY++;
-        }
-        else
-        {
-            throw new InvalidOperationException("Can't go that way!");
-        }
-    }
-
-    public string GetStatus()
-    {
-        return $"Current location (x={_currX}, y={_currY})";
     }
 }
