@@ -21,7 +21,7 @@ public class Node
             else
                 Left.Insert(value);
         }
-        else
+        else if (value > Data)
         {
             // Insert to the right
             if (Right is null)
@@ -29,6 +29,7 @@ public class Node
             else
                 Right.Insert(value);
         }
+        // If value == Data, do nothing (no duplicates)
     }
 
     public bool Contains(int value)

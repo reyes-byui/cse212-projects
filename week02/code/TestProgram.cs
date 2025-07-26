@@ -2,34 +2,34 @@ using System;
 
 public class TakingTurnsQueueDemo
 {
-    public static void Main(string[] args)
-    {
-        Console.WriteLine("Choose a demo to run:");
-        Console.WriteLine("1. TakingTurnsQueue Demo");
-        Console.WriteLine("2. PriorityQueue Demo");
-        Console.Write("Enter your choice (1 or 2): ");
-        
-        var choice = Console.ReadLine();
-        
-        if (choice == "1")
-        {
-            RunTakingTurnsDemo();
-        }
-        else if (choice == "2")
-        {
-            RunPriorityQueueDemo();
-        }
-        else
-        {
-            Console.WriteLine("Invalid choice. Running both demos...\n");
-            RunTakingTurnsDemo();
-            Console.WriteLine("\n" + new string('=', 50) + "\n");
-            RunPriorityQueueDemo();
-        }
-        
-        Console.WriteLine("\nPress any key to exit...");
-        Console.ReadKey();
-    }
+    // public static void Main(string[] args)
+    // {
+    //     Console.WriteLine("Choose a demo to run:");
+    //     Console.WriteLine("1. TakingTurnsQueue Demo");
+    //     Console.WriteLine("2. PriorityQueue Demo");
+    //     Console.Write("Enter your choice (1 or 2): ");
+    //     
+    //     var choice = Console.ReadLine();
+    //     
+    //     if (choice == "1")
+    //     {
+    //         RunTakingTurnsDemo();
+    //     }
+    //     else if (choice == "2")
+    //     {
+    //         RunPriorityQueueDemo();
+    //     }
+    //     else
+    //     {
+    //         Console.WriteLine("Invalid choice. Running both demos...\n");
+    //         RunTakingTurnsDemo();
+    //         Console.WriteLine("\n" + new string('=', 50) + "\n");
+    //         RunPriorityQueueDemo();
+    //     }
+    //     
+    //     Console.WriteLine("\nPress any key to exit...");
+    //     Console.ReadKey();
+    // }
 
     public static void RunTakingTurnsDemo()
     {
