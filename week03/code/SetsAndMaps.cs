@@ -28,22 +28,16 @@ public static class SetsAndMaps
 
         foreach (var word in words)
         {
-            // Skip if already processed
-            if (processed.Contains(word))
+
+
+            if (processed.Contains(word) || word[0] == word[1])
                 continue;
 
-            // Check if it's a palindrome (same letters), skip if so
-            if (word[0] == word[1])
-                continue;
-
-            // Create the reverse of the word using char array approach (fastest)
-            char[] reversedChars = { word[1], word[0] };
-            string reversed = new string(reversedChars);
-
+            string reversed = string.Concat(word[1], word[0]);
             // Check if the reverse exists in the set and hasn't been processed
             if (wordSet.Contains(reversed) && !processed.Contains(reversed))
             {
-                result.Add($"{reversed} & {word}");
+                result.Add($"{word} & {reversed}");
                 processed.Add(word);
                 processed.Add(reversed);
             }
