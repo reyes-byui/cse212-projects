@@ -25,14 +25,17 @@ public static class SetsAndMaps
         var result = new List<string>();
         var processed = new HashSet<string>();
 
-        for (int i = 0; i < words.Length; i++)
+        foreach (var word in words)
         {
-            var word = words[i];
-            if (processed.Contains(word) || word[0] == word[1])
+            // Skip if already processed or same character word
+            if (!processed.Add(word) || word[0] == word[1])
                 continue;
 
-            var reversed = string.Create(2, word, (span, w) => { span[0] = w[1]; span[1] = w[0]; });
-            if (wordSet.Contains(reversed) && processed.Add(word))
+            // Create reversed word more efficiently
+            var reversed = new string(new char[] { word[1], word[0] });
+            
+            // Check if reversed exists and mark it as processed
+            if (wordSet.Contains(reversed))
             {
                 result.Add($"{word} & {reversed}");
                 processed.Add(reversed);
