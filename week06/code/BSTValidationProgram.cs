@@ -6,6 +6,8 @@ using System;
 /// </summary>
 public class BSTValidationProgram
 {
+    // This is a test project and should not have a Main entry point
+    /*
     public static void Main(string[] args)
     {
         Console.WriteLine("Binary Search Tree Validation Demo");
@@ -17,4 +19,5 @@ public class BSTValidationProgram
         Console.WriteLine("\nPress any key to exit...");
         Console.ReadKey();
     }
+    */
 }
